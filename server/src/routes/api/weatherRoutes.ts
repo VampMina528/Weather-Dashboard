@@ -19,7 +19,6 @@ router.post('/', async (req, res) => {
   // TODO: GET weather data from city name
   // TODO: save city to search history
 
-  // I did some work and I was able to save city to search history
   try {
     await HistoryService.addCity(cityName)
   } catch (err) {
