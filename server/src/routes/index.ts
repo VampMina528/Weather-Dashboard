@@ -4,7 +4,11 @@ const router = Router();
 import apiRoutes from './api/index.js';
 import htmlRoutes from './htmlRoutes.js';
 
-router.use('/api', apiRoutes);
-router.use('/', htmlRoutes);
+try {
+    router.use('/api', apiRoutes);
+    router.use('/', htmlRoutes);
+} catch (err) {
+    console.error("Error setting up routes:", err);
+}
 
 export default router;

@@ -8,5 +8,9 @@
     "outDir": "dist" /* Specify an output folder for all emitted files. */
     // "noEmitOnError": true /* Disable emitting files if any type checking errors are reported. */
   },
+<<<<<<< HEAD
   "include": ["src", "dist/routes/index.js", "dist/routes/api/weatherRoutes.js", "dist/routes/htmlRoutes.js", "dist/service/historyService.js", "dist/service/weatherService.js", "dist/service/server.js"]
+=======
+  "include": ["src", "dist/routes/index.js", "dist/routes/api/weatherRoutes.js", "dist/routes/htmlRoutes.js", "dist/service/historyService.js", "dist/service/weatherService.js", "dist/service/server.js", "dist/service/weatherRoutes.js"]
+>>>>>>> master
 }
