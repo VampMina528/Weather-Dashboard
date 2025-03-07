@@ -96,8 +96,8 @@ class WeatherService {
     const date = new Date(response.list[0].dt * 1000).toLocaleDateString()
     const icon = response.list[0].weather[0].icon
     const iconDescription = response.list[0].weather[0].iconDescription
-    const tempF = ((response.list[0].main.tempF - 273.15) * 9) / 5 + 32
-    const windSpeed = response.list[0].main.windSpeed
+    const tempF = ((response.list[0].main.temp - 273.15) * (9/5)) + 32
+    const windSpeed = response.list[0].wind.speed
     const humidity = response.list[0].main.humidity
     return new Weather(city, date, icon, iconDescription, tempF, windSpeed, humidity)
   }
@@ -107,13 +107,14 @@ class WeatherService {
     forecastArray.push(currentWeather);
 
     for (let i = 3; i < weatherData.length; i+=8) {
+      let weatherInstance = weatherData[i];
       const city = this.cityName;
-      const date = new Date(weatherData[i].dt * 1000).toLocaleDateString()
-      const icon = weatherData[i].weather[0].icon
-      const iconDescription = weatherData[i].weather[0].iconDescription
-      const tempF = ((weatherData[i].main.tempF - 273.15) * 9) / 5 + 32
-      const windSpeed = weatherData[i].main.windSpeed
-      const humidity = weatherData[i].main.humidity
+      const date = new Date(weatherInstance.dt * 1000).toLocaleDateString()
+      const icon = weatherInstance.weather[0].icon
+      const iconDescription = weatherInstance.weather[0].iconDescription
+      const tempF = ((weatherInstance.main.temp - 273.15) * (9 / 5)) + 32
+      const windSpeed = weatherInstance.wind.speed
+      const humidity = weatherInstance.main.humidity
       forecastArray.push(new Weather(city, date, icon, iconDescription, tempF, windSpeed, humidity))
     } return forecastArray
   }
